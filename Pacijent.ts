@@ -1,11 +1,12 @@
 import Osoba from "./Osoba"
 import Doktor from "./Doctor"
 import Loger from "./Loger"
+import Pregled from "./Pregled";
 export default class Pacijent extends Osoba {
     jmbg: number;
     brojZdravstvenogKartona: number;
     izabraniLekar: Doktor;
-    listaPregleda: Array<any> = [];
+    listaPregleda: Array<Pregled> = [];
     constructor(ime: string, prezime: string, jmbg: number, brojZdravstvenogKartona: number){
         super(ime, prezime);
         this.jmbg = jmbg;
@@ -17,7 +18,7 @@ export default class Pacijent extends Osoba {
         doktor.dodajPacijenta(this);
         Loger.logovanje(`Pacijent ${this.ime} izabrao je Dr.${doktor.ime} za svog doktora.`)
     }
-    dodajPregled(pregled: object){
+    dodajPregled(pregled: Pregled){
         this.listaPregleda.push(pregled)
     }
     obaviPregled(){

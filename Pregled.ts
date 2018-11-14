@@ -1,3 +1,4 @@
+import Pacijent from "./Pacijent"
 export default abstract class Pregled {
     vreme: string;
     datum: string;
@@ -5,4 +6,5 @@ export default abstract class Pregled {
         this.vreme = vreme;
         this.datum = datum;
     }
+    abstract odradiPregled(pacijent: Pacijent): void;
 }
